@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Libros</title>
+</head>
+<body>
+    <h1>Lista de Libros</h1>
+    <ul>
+    {% for libro in libros %}
+        <li><a href="{% url 'detalle_libro' libro.id %}">{{ libro.titulo }}</a></li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
