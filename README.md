@@ -231,6 +231,62 @@ libros/templates/libros/detalle_libro.html:
 </html>
 ```
 
+libros/templates/libros/editar_libro.html:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar {{ libro.titulo }}</title>
+</head>
+<body>
+    <h1>Editar {{ libro.titulo }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar cambios</button>
+    </form>
+    <a href="{% url 'detalle_libro' libro.id %}">Cancelar</a>
+</body>
+</html>
+```
+
+libros/templates/libros/crear_libro.html:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Libro</title>
+</head>
+<body>
+    <h1>Crear Libro</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{% url 'lista_libros' %}">Cancelar</a>
+</body>
+</html>
+```
+libros/templates/libros/eliminar_libro.html:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eliminar {{ libro.titulo }}</title>
+</head>
+<body>
+    <h1>Eliminar {{ libro.titulo }}</h1>
+    <p>¿Estás seguro de que quieres eliminar este libro?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sí, eliminar</button>
+    </form>
+    <a href="{% url 'detalle_libro' libro.id %}">Cancelar</a>
+</body>
+</html>
+```
+
 ## Ejecución del Proyecto
 
 1. Crea un superusuario para acceder al admin:
