@@ -10,5 +10,7 @@
     <p>Fecha de publicación: {{ libro.fecha_publicacion }}</p>
     <p>ISBN: {{ libro.isbn }}</p>
     <a href="{% url 'lista_libros' %}">Volver a la lista</a>
+    <a href="{% url 'editar_libro' libro.id %}">Editar</a>
+    <a href="{% url 'eliminar_libro' libro.id %}">Eliminar</a>
 </body>
 </html>

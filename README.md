@@ -119,8 +119,9 @@ class LibroAdmin(admin.ModelAdmin):
 En libros/views.py, crea las vistas para listar y detallar libros:
 
 ```python
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Libro
+from .forms import LibroForm
 
 def lista_libros(request):
     libros = Libro.objects.all()
@@ -129,6 +130,34 @@ def lista_libros(request):
 def detalle_libro(request, libro_id):
     libro = get_object_or_404(Libro, pk=libro_id)
     return render(request, 'libros/detalle_libro.html', {'libro': libro})
+
+def crear_libro(request):
+    if request.method == 'POST':
+        form = LibroForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_libros')
+    else:
+        form = LibroForm()
+    return render(request, 'libros/crear_libro.html', {'form': form})
+
+def editar_libro(request, libro_id):
+    libro = get_object_or_404(Libro, pk=libro_id)
+    if request.method == 'POST':
+        form = LibroForm(request.POST, instance=libro)
+        if form.is_valid():
+            form.save()
+            return redirect('detalle_libro', libro_id=libro.id)
+    else:
+        form = LibroForm(instance=libro)
+    return render(request, 'libros/editar_libro.html', {'form': form, 'libro': libro})
+
+def eliminar_libro(request, libro_id):
+    libro = get_object_or_404(Libro, pk=libro_id)
+    if request.method == 'POST':
+        libro.delete()
+        return redirect('lista_libros')
+    return render(request, 'libros/eliminar_libro.html', {'libro': libro})
 ```
 
 ## Configuración de URLs
@@ -154,6 +183,9 @@ from . import views
 urlpatterns = [
     path('', views.lista_libros, name='lista_libros'),
     path('<int:libro_id>/', views.detalle_libro, name='detalle_libro'),
+    path('crear/', views.crear_libro, name='crear_libro'),
+    path('<int:libro_id>/editar/', views.editar_libro, name='editar_libro'),
+    path('<int:libro_id>/eliminar/', views.eliminar_libro, name='eliminar_libro'),
 ]
 ```
 
