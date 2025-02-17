@@ -73,16 +73,6 @@ crud_python/ # Carpeta donde guardas tu proyecto
 │   ├── tests.py
 │   ├── urls.py 
 │   ├── views.py
-│ 
-├── categorias/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── serializer.py
-│   ├── tests.py
-│   ├── urls.py 
-│   ├── views.py
 │
 ```
 
