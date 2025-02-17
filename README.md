@@ -52,6 +52,40 @@ django-admin startproject sistema_libros
 cd sistema_libros
 ```
 
+### Esta sería tu estructura
+```plaintext
+crud_python/ # Carpeta donde guardas tu proyecto
+│
+├── manage.py
+├── libreria/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+│
+├── libros/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── serializer.py
+│   ├── tests.py
+│   ├── urls.py 
+│   ├── views.py
+│ 
+├── categorias/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── serializer.py
+│   ├── tests.py
+│   ├── urls.py 
+│   ├── views.py
+│
+```
+
 3. Crea una nueva aplicación:
 
 
