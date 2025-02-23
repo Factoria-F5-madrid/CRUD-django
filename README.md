@@ -69,6 +69,7 @@ crud_python/ # Carpeta donde guardas tu proyecto
 │   ├── admin.py
 │   ├── apps.py
 │   ├── models.py
+│   ├── forms.py
 │   ├── serializer.py
 │   ├── tests.py
 │   ├── urls.py 
@@ -182,6 +183,20 @@ def eliminar_libro(request, libro_id):
         libro.delete()
         return redirect('lista_libros')
     return render(request, 'libros/eliminar_libro.html', {'libro': libro})
+```
+
+## Creación de Forms
+
+En libros/forms.py, crea el formulario para tus vistas de crear y modificar/actualizar libros:
+
+```
+from django import forms
+from .models import Libro
+
+class LibroForm(forms.ModelForm):
+    class Meta:
+        model = Libro
+        fields = ['titulo', 'autor', 'descripcion', 'fecha_publicacion', 'isbn']
 ```
 
 ## Configuración de URLs
