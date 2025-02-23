@@ -189,7 +189,7 @@ def eliminar_libro(request, libro_id):
 
 En libros/forms.py, crea el formulario para tus vistas de crear y modificar/actualizar libros:
 
-```
+```python
 from django import forms
 from .models import Libro
 
