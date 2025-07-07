@@ -52,7 +52,7 @@ django-admin startproject sistema_libros
 cd sistema_libros
 ```
 
-### Esta sería tu estructura
+### Esta será tu estructura una vez creadas las aplicaciones
 ```plaintext
 crud_python/ # Carpeta donde guardas tu proyecto
 │
