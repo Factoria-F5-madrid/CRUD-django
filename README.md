@@ -40,8 +40,10 @@ El Admin de Django es especialmente útil para crear rápidamente una interfaz d
 
 ## Configuración del Proyecto
 
-1. Instala Django:
-
+1. Crea tu entorno virtual e Instala Django:
+```bash
+python -m venv .venv
+```
 ```bash
 pip install django
 ```
