@@ -10,6 +10,7 @@
 7. [Configuración de URLs](#configuración-de-urls)
 8. [Creación de Plantillas](#creación-de-plantillas)
 9. [Ejecución del Proyecto](#ejecución-del-proyecto)
+10. [Recursos](#recursos)
 
 ## Introducción a Django
 
@@ -344,3 +345,7 @@ python manage.py runserver
 
 3. Accede al admin en [http://localhost:8000/admin/](http://localhost:8000/admin/) y añade algunos libros.
 4. Visita [http://localhost:8000/libros/](http://localhost:8000/libros/) para ver la lista de libros y [http://localhost:8000/libros/1/](http://localhost:8000/libros/1/) para ver los detalles de un libro (reemplaza '1' con el ID de un libro existente).
+
+## Recursos
+
+* [Artículo de Medium para crear tu primer CRUD](https://medium.com/@gutundbose/aplicaci%C3%B3n-crud-con-django-82bb217493ea)
