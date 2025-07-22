@@ -42,6 +42,16 @@ El Admin de Django es especialmente útil para crear rápidamente una interfaz d
 
 1. Crea tu entorno virtual, lo activas e Instala Django:
 
+Crea una carpeta y viaja a ella:
+
+```bash
+mkdir crud_python
+```
+
+```bash
+cd crud_python
+```
+
 Crear entorno:
 
 ```bash
@@ -65,16 +75,43 @@ pip install django
 2. Crea un nuevo proyecto Django:
 
 
-```shellscript
-django-admin startproject sistema_libros
-cd sistema_libros
+```bash
+django-admin startproject sistema_libros .
 ```
+
+si no colocamos el punto al final, la estructura de carpetas se vería así:
+
+*Se genera otra carpeta con el mismo nombre del project y lo envuelve como una carpeta "madre"*
+
+```plaintext
+
+crud_python/ # Carpeta donde guardas tu proyecto
+│
+├── sistema_libros/ # carpeta generada por no usar el punto
+│   ├──sistema_libros/ # el project de django
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+│
+│   ├── manage.py
+```
+
 
 ### Esta será tu estructura una vez creadas las aplicaciones
 ```plaintext
 crud_python/ # Carpeta donde guardas tu proyecto
 │
 ├── manage.py
+│
+├── categorias/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+│
 ├── libreria/
 │   ├── __init__.py
 │   ├── settings.py
@@ -82,7 +119,7 @@ crud_python/ # Carpeta donde guardas tu proyecto
 │   ├── asgi.py
 │   └── wsgi.py
 │
-├── libros/
+├── sistema_libros/
 │   ├── __init__.py
 │   ├── admin.py
 │   ├── apps.py
@@ -98,7 +135,7 @@ crud_python/ # Carpeta donde guardas tu proyecto
 3. Crea una nueva aplicación:
 
 
-```shellscript
+```bash
 python manage.py startapp libros
 ```
 

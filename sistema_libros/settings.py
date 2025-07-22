@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+# Carga las variables de entorno del archivo .env
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'categorias',
     'libros',
 ]
 
@@ -76,8 +83,15 @@ WSGI_APPLICATION = 'sistema_libros.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Cambia el motor a MySQL
+        'NAME': os.getenv('DB_NAME'),          # Nombre de tu base de datos
+        'USER': os.getenv('DB_USER'),          # Usuario de tu base de datos
+        'PASSWORD': os.getenv('DB_PASSWORD'),  # Contraseña del usuario
+        'HOST': os.getenv('DB_HOST'),          # Dirección del servidor de la base de datos (e.g., 'localhost')
+        'PORT': os.getenv('DB_PORT'),          # Puerto de la base de datos (por defecto es 3306 para MySQL)
+        'OPTIONS': {
+            'options': os.getenv('POOL_MODE')
+        }
     }
 }
 

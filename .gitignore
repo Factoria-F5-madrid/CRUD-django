@@ -1,0 +1,17 @@
+.env
+*.sqlite3
+.venv
+.vscode
+
+
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.log
+
+# Ignore all migrations except for the initial migration
+!migrations/0001_initial.py
+migrations/*
+
