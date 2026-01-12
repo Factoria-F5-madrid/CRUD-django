@@ -104,20 +104,14 @@ crud_python/ # Carpeta donde guardas tu proyecto
 crud_python/ # Carpeta donde guardas tu proyecto
 │
 ├── manage.py
-│
-├── categorias/
+├── libros/
 │   ├── __init__.py
-│   ├── settings.py
-│   ├── urls.py
-│   ├── asgi.py
-│   └── wsgi.py
-│
-├── libreria/
-│   ├── __init__.py
-│   ├── settings.py
-│   ├── urls.py
-│   ├── asgi.py
-│   └── wsgi.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
 │
 ├── sistema_libros/
 │   ├── __init__.py
